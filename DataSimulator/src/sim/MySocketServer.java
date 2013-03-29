@@ -18,10 +18,10 @@ public class MySocketServer implements Runnable{
 	private ServerSocket serverSocket;
 	private ExecutorService executorService;   //thread pool
 	private int poolSize = 5;                  //the size of thread pool
-	public int port = 9000;
+	public int port = 9000;                    //listen port 
 	//public int interval = 1000;
 	
-	private MySocketServer(){
+	public MySocketServer(){
 		try {
 			serverSocket = new ServerSocket(port);
 			executorService = Executors.newFixedThreadPool(poolSize);

@@ -87,10 +87,12 @@ public class Producer implements Runnable{
 //			}
 			
 			//write data to cache
-			Cache cache = Cache.getInstance();
-			cache.setCache(info);
+			Cache cache= Cache.getInstance();
+			synchronized(cache){				
+				cache.setCache(info);
+				cache.notifyAll();
+			}
 			
-			//cache.notifyAll();
 			
 			//sleep for a while
 			try {

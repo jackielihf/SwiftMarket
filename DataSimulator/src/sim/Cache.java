@@ -8,7 +8,7 @@ import java.util.concurrent.locks.*;
 
 /**
  * @author jackie
- *
+ * cache the data
  */
 public class Cache {
 	

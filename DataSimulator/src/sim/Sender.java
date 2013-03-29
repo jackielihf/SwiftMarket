@@ -39,17 +39,17 @@ public class Sender implements Runnable {
 			
 			
 			try {
-//				writer.println("hello"+System.currentTimeMillis());
-//				writer.flush();				
-//				Thread.sleep(1000);
 				
-				//cache.wait(); //wait for new data
-				Vector<Stock> info = cache.getCache(); //read data from cache
-				
+				Vector<Stock> info;
+				synchronized(cache){					
+					cache.wait(); //wait for new data
+					info = cache.getCache(); //read data from cache
+				}
+				//
 				String data = "";
 				for(int i=0;i<info.size();i++){
 					Stock st = info.get(i);
-					data+=st.name+" "+st.price+" "+ st.volume+ " "+ st.timeStr+"\n";
+					data+=st.code +" " +st.name+" "+st.price+" "+ st.volume+ " "+ st.timeStr+"\n";
 				}
 				
 				//send data to the socket client
