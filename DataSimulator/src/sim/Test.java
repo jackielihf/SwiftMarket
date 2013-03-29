@@ -21,10 +21,22 @@ public class Test {
 		
 		change(st);
 		System.out.println(st.price);
+		
+		
+		Vector<String> vec = new Vector<String>();
+		vec.add("hello");
+		Vector<String> vec2 = mod(vec);
+		vec.set(0, "world");
+		System.out.println(vec2.get(0));
 
 	}
 	public static void change(Stock st){
 		st.price = 20.0;
+	}
+	public static Vector<String> mod(Vector<String> vec){
+		Vector<String> res = new Vector<String>();
+		res.add(vec.get(0));
+		return res;
 	}
 
 }
