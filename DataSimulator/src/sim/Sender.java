@@ -33,7 +33,7 @@ public class Sender implements Runnable {
 	@Override
 	public void run() {
 
-		System.out.println("Sender start to run...");
+		System.out.println("a sender working with a socket starts to run ...");
 		Cache cache = Cache.getInstance();
 		while(flag){
 			

@@ -17,13 +17,16 @@ public class Producer implements Runnable{
 	public double deltaPrice = 0.2;
 	public int deltaVolume = 1000;	
 	
-	public Vector<Stock> allStocks; //all the stocks
+	private Vector<Stock> allStocks; //all the stocks
 	
 	private volatile boolean flag = true;
 	
 	public Producer()
 	{
 		allStocks = new Vector<Stock>();
+	}
+	public Vector<Stock> getAllStocks(){
+		return allStocks;
 	}
 	/**
 	 * create some stock objects
@@ -74,17 +77,13 @@ public class Producer implements Runnable{
 	@Override
 	public void run() {
 
+		System.out.println("producer start to run...");
 		createStocks();
 		while(flag){
 			
 			//produce data
 			Vector<Stock> info = produce();
 			
-			//
-//			for(int j=0;j<info.size();j++){
-//				Stock st = info.get(j);
-//				System.out.println(st.name+" "+st.price+" "+ st.volume+ " "+ st.timeStr);
-//			}
 			
 			//write data to cache
 			Cache cache= Cache.getInstance();
