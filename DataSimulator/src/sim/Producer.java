@@ -17,29 +17,27 @@ public class Producer implements Runnable{
 	public double deltaPrice = 0.2;
 	public int deltaVolume = 1000;	
 	
-	private Vector<Stock> allStocks; //all the stocks
-	
+	private volatile Vector<Stock> allStocks;
 	private volatile boolean flag = true;
 	
 	public Producer()
 	{
-		allStocks = new Vector<Stock>();
-	}
-	public Vector<Stock> getAllStocks(){
-		return allStocks;
+		allStocks = Cache.getInstance().getAllStocks();  //get the object of array of all stocks from Cache
 	}
 	/**
 	 * create some stock objects
 	 */
 	private void createStocks()
 	{
-		allStocks.clear();
 		String code = "6000";
 		String name = "能源";
 		String startTime = MyTime.getCurTimeStr(); 
-		
-		for(int i=0;i<totalStock;i++){
-			allStocks.add(new Stock(code+i,name+i,10,0,startTime)); //10 RMB,0 volume
+		synchronized(allStocks){
+			
+			allStocks.clear();
+			for(int i=0;i<totalStock;i++){
+				allStocks.add(new Stock(code+i,name+i,10,0,startTime)); //10 RMB,0 volume
+			}
 		}
 	}
 	
@@ -50,12 +48,15 @@ public class Producer implements Runnable{
 	public Vector<Stock> produce()
 	{
 		Vector<Stock> infos = new Vector<Stock>();
-		for(int i=0;i<allStocks.size();i++){
-			Stock st = allStocks.get(i);
-			if(Math.random()>pp){
-				//change the trading info of the stock
-				Stock info = changeInfo(st);
-				infos.add(info);
+		synchronized(allStocks){
+			
+			for(int i=0;i<allStocks.size();i++){
+				Stock st = allStocks.get(i);
+				if(Math.random()>pp){
+					//change the trading info of the stock
+					Stock info = changeInfo(st);
+					infos.add(info);
+				}
 			}
 		}
 		return infos;
@@ -79,6 +80,12 @@ public class Producer implements Runnable{
 
 		System.out.println("producer start to run...");
 		createStocks();
+//		try {
+//			Thread.sleep(10000);
+//		} catch (InterruptedException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
 		while(flag){
 			
 			//produce data
@@ -88,7 +95,7 @@ public class Producer implements Runnable{
 			//write data to cache
 			Cache cache= Cache.getInstance();
 			synchronized(cache){				
-				cache.setCache(info);
+				cache.setUpdateCache(info);
 				cache.notifyAll();
 			}
 			

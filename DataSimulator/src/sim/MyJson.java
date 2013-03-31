@@ -14,11 +14,11 @@ public class MyJson {
 	
 	public static String stockJson(Stock st){
 		String res = "{";
-		res += "code:"+ "\""+ st.code + "\",\n";
-		res += "name:"+ "\""+ st.name + "\",\n";
-		res += "price:"+ st.price + ",\n";
-		res += "volume:"+ st.volume + ",\n";
-		res += "time:"+ "\""+ st.timeStr + "\"\n";
+		res += "\"code\":"+ "\""+ st.code + "\",";
+		res += "\"name\":"+ "\""+ st.name + "\",";
+		res += "\"price\":"+ st.price + ",";
+		res += "\"volume\":"+ st.volume + ",";
+		res += "\"time\":"+ "\""+ st.timeStr + "\"";
 		res += "}";
 		return res;
 	}
@@ -31,13 +31,13 @@ public class MyJson {
 	public static String someStocksJson(String type,Vector<Stock> list){
 		String res = "{";
 		//add "type" information
-		res += "type:" + "\"" + type +"\",\n";
+		res += "\"type\":" + "\"" + type +"\",";
 		//stock array
-		res += "content:" + "[";
+		res += "\"content\":" + "[";
 		for(int i=0;i<list.size()-1;i++){
-			res += stockJson(list.get(i)) + ",\n";
+			res += stockJson(list.get(i)) + ",";
 		}
-		res += stockJson(list.get(list.size()-1));
+		if(list.size()>0) res += stockJson(list.get(list.size()-1));
 		res += "]}";
 		return res;
 	}
