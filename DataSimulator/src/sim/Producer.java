@@ -80,12 +80,6 @@ public class Producer implements Runnable{
 
 		System.out.println("producer start to run...");
 		createStocks();
-//		try {
-//			Thread.sleep(10000);
-//		} catch (InterruptedException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
 		while(flag){
 			
 			//produce data

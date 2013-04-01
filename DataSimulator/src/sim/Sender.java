@@ -75,13 +75,9 @@ public class Sender implements Runnable {
 					cache.wait(); //wait for new data
 					info = cache.getUpdateCache(); //read the newest data from cache
 				}
+				
 				//
 				String data = "";
-//				for(int i=0;i<info.size();i++){
-//					Stock st = info.get(i);
-//					data+=st.code +" " +st.name+" "+st.price+" "+ st.volume+ " "+ st.timeStr+"\n";
-//				}
-				
 				//transfer to JSON String
 				data = MyJson.someStocksJson("update", info)+"\n";
 				
@@ -98,6 +94,9 @@ public class Sender implements Runnable {
 		onClose();
 		
 	}
+	/**
+	 * close stream and socket
+	 */
 	public void onClose(){
 		if(writer!=null)
 			writer.close();

@@ -18,19 +18,20 @@ public class MySocketServer implements Runnable{
 	private ServerSocket serverSocket;
 	private ExecutorService executorService;   //thread pool
 	private int poolSize = 5;                  //the size of thread pool
-	public int port = 9000;                    //listen port 
+	private int port = 9000;                   //default listen port 
 	//public int interval = 1000;
 	
-	public MySocketServer(){
+	public MySocketServer(int _port){
 		try {
+			port = _port;   //set the listening port
 			serverSocket = new ServerSocket(port);
+			System.out.println("Tcp Server listen on "+port);
 			executorService = Executors.newFixedThreadPool(poolSize);
 			
 		} catch (IOException e) {
 			
 			e.printStackTrace();
 		}
-		
 	}
 	@Override
 	public void run() {
@@ -49,7 +50,6 @@ public class MySocketServer implements Runnable{
 			}
 			
 		}
-		
 	}
 
 	/**
@@ -59,7 +59,7 @@ public class MySocketServer implements Runnable{
 		
 		
 		new Thread(new Producer()).start();
-		new Thread(new MySocketServer()).start();
+		new Thread(new MySocketServer(9000)).start();
 		try {
 			Socket client = new Socket("127.0.0.1",9000);
 			
