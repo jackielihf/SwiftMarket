@@ -154,9 +154,11 @@ optionally, you can execute th shell script startAll.sh to run DataSimulator, re
 ## 5. access web site from web brower
 if the steps above finished successfully, you can access the web site from web brower now.
 open local web brower, input the default address:
+
     http://localhost:9090
 
 or access from non-local web brower by inputing: 
+
     http://DataPusher's IP address:9090
 
 You will see the Home page of SwiftMarket. The real-time stock data updates dynamically.
