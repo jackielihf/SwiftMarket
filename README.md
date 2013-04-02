@@ -146,11 +146,18 @@ Also, you can use the options to specify settings:
 
     $node pusher.js [-p port] [-r redisServerIp][-rp redisServerPort] [-s dataSimulatorIp][-sp dataSimulatorPort]
 
-## 4. access web site from web brower
-if the steps above finished successfully, you can access the web site from web brower now.
-open local web brower, input the default address: http://localhost:9090
+## 4. startAll.sh
+optionally, you can execute th shell script startAll.sh to run DataSimulator, redis server and DataPusher.
+    
+    $sh startAll.sh
 
-or access from non-local web brower by inputing: http://DataPusher's IP address:9090
+## 5. access web site from web brower
+if the steps above finished successfully, you can access the web site from web brower now.
+open local web brower, input the default address:
+    http://localhost:9090
+
+or access from non-local web brower by inputing: 
+    http://DataPusher's IP address:9090
 
 You will see the Home page of SwiftMarket. The real-time stock data updates dynamically.
 
