@@ -97,31 +97,31 @@ or check out them with git from https://github.com/jackielihf/SwiftMarket.git
 
 2) architecture of source codes
 
-SwiftMarket
+SwiftMarket/
 
-|----DataSimulator/
+|--DataSimulator/
 
-     |----bin/                
-     |----build/
-     |----src/
-     |----MANIFEST.MF
+  |--bin/                
+  |--build/
+  |--src/
+  |--MANIFEST.MF
      
-|----DataPusher/
+|--DataPusher/
 
-     |----pusher.js
-     |----index.html
+  |--pusher.js
+  |--index.html
      
-|----doc/
+|--doc/
 
-     |----some documents including Design Guide
+  |--some documents including Design Guide
      
-|----redis/
+|--redis/
 
-     |----redis.conf
+  |--redis.conf
      
-|----README.md
+|--README.md
 
-|----startAll.sh
+|--startAll.sh
 
 # ----------compile Swift Market----------
 ## 1. build DataSimulator
@@ -159,7 +159,8 @@ Also, you can use the options to specify settings:
 ## 4. access web site from web brower
 if the steps above finished successfully, you can access the web site from web brower now.
 open local web brower, input the default address: http://localhost:9090
-or access from non-local web brower by inputing: http://<DataPusher's IP address>:9090
+
+or access from non-local web brower by inputing: http://DataPusher's IP address:9090
 
 You will see the Home page of SwiftMarket. The real-time stock data updates dynamically.
 
