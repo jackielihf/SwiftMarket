@@ -97,31 +97,21 @@ or check out them with git from https://github.com/jackielihf/SwiftMarket.git
 
 2) architecture of source codes
 
-SwiftMarket/
-
-|--DataSimulator/
-
-  |--bin/                
-  |--build/
-  |--src/
-  |--MANIFEST.MF
-     
-|--DataPusher/
-
-  |--pusher.js
-  |--index.html
-     
-|--doc/
-
-  |--some documents including Design Guide
-     
-|--redis/
-
-  |--redis.conf
-     
-|--README.md
-
-|--startAll.sh
+    SwiftMarket/
+        |--DataSimulator/
+            |--bin/                
+            |--build/
+            |-src/
+            |--MANIFEST.MF
+        |--DataPusher/
+            |--pusher.js
+            |--index.html
+        |--doc/
+            |--some documents including Design Guide
+        |--redis/
+            |--redis.conf
+        |--README.md
+        |--startAll.sh
 
 # ----------compile Swift Market----------
 ## 1. build DataSimulator
