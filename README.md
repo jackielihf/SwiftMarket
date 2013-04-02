@@ -12,11 +12,17 @@ Swift Market is developed and tested on Redhat Enterprise Linux 6.1 x64. You cou
 ## 2. Tools and version
 
 1) SUN JDK1.7
+
 2) node.js 0.10.0 linux x64  -- web backend runtime and language
+
 3) npm 1.2.14                -- node.js package management 
+
 4) express 3.1.0             -- web framework for node
+
 5) redis client for node.js: redis 0.8.2  -- redis client for node
+
 6) socket.io 0.9.14                       -- WebSocket for node
+
 7) redis server: redis 2.6.12             -- redis server to cache data
 
 
@@ -71,11 +77,13 @@ like express, install it with:
 1)Go to http://www.redis.io/, download a steady distribution. like redis 2.6.12.
 
 2)unpack it, then compile and install it.
+
     # tar xzvf redis-2.6.12.tar.gz
     # cd redis-2.6.12
     # make && make install
 
 3) check it
+
     # redis-server -v
 
 4) configuration file is "redis.conf" in the redis directory.
@@ -92,27 +100,33 @@ or check out them with git from https://github.com/jackielihf/SwiftMarket.git
 SwiftMarket
 
 |----DataSimulator/
+
      |----bin/                
      |----build/
      |----src/
      |----MANIFEST.MF
      
 |----DataPusher/
+
      |----pusher.js
      |----index.html
      
 |----doc/
+
      |----some documents including Design Guide
      
 |----redis/
+
      |----redis.conf
      
 |----README.md
+
 |----startAll.sh
 
 # ----------compile Swift Market----------
 ## 1. build DataSimulator
 DataSimulator is coded in Java.
+
     $cd SwiftMarket/DataSimulator/build
     $sh build.sh
 when finished, it will generate a jar file "dataSimulator.jar" in the current dir.
@@ -124,18 +138,22 @@ DataPusher is written in node.js. We needn't to compile it.
 # -----------run and test ----------------
 ## 1. run DataSimulator
 you can run dataSimulator defaultly on port 9000, or specify another port by using option "-p".
+
     $java -jar dataSimulator.jar [-p port]
 
 ## 2. run redis server
 redis.conf is the setting file of redis server. you can modify it. Defaultly, it runs locally on port 6379.
+
     $redis-server redis.conf
 
 ## 3. run DataPusher
 After starting redis server, you can run the DataPusher.HTTP server listens on port 9090 defaultly.
+
     $cd DataPusher
     $node pusher.js
 
 Also, you can use the options to specify settings:
+
     $node pusher.js [-p port] [-r redisServerIp][-rp redisServerPort] [-s dataSimulatorIp][-sp dataSimulatorPort]
 
 ## 4. access web site from web brower
