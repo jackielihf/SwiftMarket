@@ -1,5 +1,5 @@
 
-Copyright (C) Jackie Lee <jackie.lihf#gmail.com>
+Copyright (C) Jackie Lee (jackie.lihf#gmail.com)
 ## README of Swift Market
 The system generates information of stock market randomly, and push the information data to Web Brower User.
 
@@ -42,9 +42,11 @@ go to SUN website and download JDK1.7, then install it,and set up the environmen
 You may download newer version of it.
 
 2)unpack the package to /usr/local/node
+
     #tar xzvf node-v0.10.0-linux-x64.tar.gz
 
 3)set up evironment
+
     # vi /etc/profile
 add the following content into the file's end:
 
@@ -53,24 +55,30 @@ add the following content into the file's end:
     export NODE_PATH=$NODE_HOME/lib/node_modules
 
 save it then source it with:
+
     #source /etc/profile
 
 4) you can check it's version with:
+
     #node -v
 
 ## 3. install npm
 node.js bundles npm now, we needn't to install it. Check it with:
+
     # npm -v
 
 ## 4. install express globally using npm tool
+
     # npm install -g express
 After installation, you will find the express dir in: /usr/local/node/node-v0.10.0-linux-x64/lib/node_modules
 
 ## 5. install redis client globally
 like express, install it with:
+
     #npm install -g redis
 
 ## 6. install socket.io globally
+
     #npm install -g socket.io
 
 ## 7.install redis server
@@ -93,6 +101,7 @@ like express, install it with:
 # ---------SwiftMarket source codes-------
 1) get source codes
 you can download them from https://github.com/jackielihf/SwiftMarket
+
 or check out them with git from https://github.com/jackielihf/SwiftMarket.git
 
 2) architecture of source codes
